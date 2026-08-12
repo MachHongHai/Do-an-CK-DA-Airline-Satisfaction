@@ -1,6 +1,7 @@
-# %% Import thư viện và đọc dữ liệu
 import pandas as pd
 import matplotlib.pyplot as plt
+
+plt.style.use("seaborn-v0_8-whitegrid")
 
 df = pd.read_csv("data/airline.csv")
 
@@ -57,37 +58,33 @@ service_range = pd.DataFrame({
 print(service_range)
 
 # %% Boxplot Age
-plt.figure(figsize=(6, 4))
-plt.boxplot(df["Age"].dropna(), patch_artist=True, boxprops=dict(facecolor="#a0c4ff", color="#1d3557"))
-plt.title("Phân bố Age bằng boxplot")
+plt.figure(figsize=(5.5, 4))
+plt.boxplot(df["Age"].dropna(), patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
+plt.title("Phân bố Age bằng boxplot", fontweight="bold")
 plt.ylabel("Age (Tuổi)")
-plt.grid(axis="y", linestyle="--", alpha=0.5)
 plt.tight_layout()
 plt.show()
 
 # %% Boxplot Flight Distance
-plt.figure(figsize=(6, 4))
-plt.boxplot(df["Flight Distance"].dropna(), patch_artist=True, boxprops=dict(facecolor="#a0c4ff", color="#1d3557"))
-plt.title("Phân bố Flight Distance bằng boxplot")
+plt.figure(figsize=(5.5, 4))
+plt.boxplot(df["Flight Distance"].dropna(), patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
+plt.title("Phân bố Flight Distance bằng boxplot", fontweight="bold")
 plt.ylabel("Flight Distance (Khoảng cách)")
-plt.grid(axis="y", linestyle="--", alpha=0.5)
 plt.tight_layout()
 plt.show()
 
 # %% Boxplot Departure Delay
-plt.figure(figsize=(6, 4))
-plt.boxplot(df["Departure Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#ffb703", color="#d90429"))
-plt.title("Phân bố Departure Delay bằng boxplot")
+plt.figure(figsize=(5.5, 4))
+plt.boxplot(df["Departure Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#E1974C", alpha=0.7))
+plt.title("Phân bố Departure Delay bằng boxplot", fontweight="bold")
 plt.ylabel("Thời gian trễ (Phút)")
-plt.grid(axis="y", linestyle="--", alpha=0.5)
 plt.tight_layout()
 plt.show()
 
 # %% Boxplot Arrival Delay
-plt.figure(figsize=(6, 4))
-plt.boxplot(df["Arrival Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#ffb703", color="#d90429"))
-plt.title("Phân bố Arrival Delay bằng boxplot")
+plt.figure(figsize=(5.5, 4))
+plt.boxplot(df["Arrival Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#E1974C", alpha=0.7))
+plt.title("Phân bố Arrival Delay bằng boxplot", fontweight="bold")
 plt.ylabel("Thời gian trễ (Phút)")
-plt.grid(axis="y", linestyle="--", alpha=0.5)
 plt.tight_layout()
 plt.show()
