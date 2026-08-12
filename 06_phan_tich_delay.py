@@ -20,8 +20,8 @@ not_sat_departure = df[df["satisfaction"] == "neutral or dissatisfied"]["Departu
 
 plt.figure(figsize=(6, 4))
 plt.boxplot([not_sat_departure, sat_departure], tick_labels=["Không hài lòng / Trung lập", "Hài lòng"], showfliers=False, patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
-plt.title("Departure Delay theo mức độ hài lòng", fontweight="bold")
-plt.ylabel("Thời gian trễ xuất phát (Phút)")
+plt.title("So sánh thời gian trễ khởi hành theo trạng thái hài lòng", fontweight="bold")
+plt.ylabel("Thời gian trễ khởi hành (phút)")
 plt.tight_layout()
 plt.show()
 
@@ -32,8 +32,8 @@ not_sat_arrival = arrival[arrival["satisfaction"] == "neutral or dissatisfied"][
 
 plt.figure(figsize=(6, 4))
 plt.boxplot([not_sat_arrival, sat_arrival], tick_labels=["Không hài lòng / Trung lập", "Hài lòng"], showfliers=False, patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
-plt.title("Arrival Delay theo mức độ hài lòng", fontweight="bold")
-plt.ylabel("Thời gian trễ hạ cánh (Phút)")
+plt.title("So sánh thời gian trễ khi đến nơi theo trạng thái hài lòng", fontweight="bold")
+plt.ylabel("Thời gian trễ khi đến (phút)")
 plt.tight_layout()
 plt.show()
 
@@ -57,8 +57,8 @@ plt.hist(
     label="Hài lòng",
     density=True
 )
-plt.title("Phân phối Arrival Delay theo mức độ hài lòng (<= 120 phút)", fontweight="bold")
-plt.xlabel("Thời gian trễ hạ cánh (Phút)")
+plt.title("Phân bố thời gian trễ khi đến (≤ 120 phút) theo trạng thái hài lòng", fontweight="bold")
+plt.xlabel("Thời gian trễ khi đến (phút)")
 plt.ylabel("Mật độ tần suất (Density)")
 plt.legend()
 plt.tight_layout()
