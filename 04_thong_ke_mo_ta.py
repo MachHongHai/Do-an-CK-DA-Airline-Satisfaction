@@ -14,12 +14,19 @@ print("\nTỷ lệ (%):")
 print(sat_rate.round(2))
 
 # %% Biểu đồ tỷ lệ satisfaction
-sat_rate.plot(kind="bar")
-plt.title("Tỷ lệ hài lòng của hành khách")
+plt.figure(figsize=(6.5, 4.5))
+bars = sat_rate.plot(kind="bar", color=["#e74c3c", "#2ecc71"], edgecolor="black", alpha=0.85)
+plt.title("Tỷ lệ hài lòng của hành khách", fontsize=12, fontweight="bold")
 plt.xlabel("Mức độ hài lòng")
 plt.ylabel("Tỷ lệ (%)")
-plt.xticks(rotation=0)
+plt.xticks([0, 1], ["Trung lập / Không hài lòng", "Hài lòng"], rotation=0)
 plt.ylim(0, 100)
+plt.grid(axis="y", linestyle="--", alpha=0.5)
+
+# Thêm con số phần trăm lên đầu từng cột
+for i, v in enumerate(sat_rate):
+    plt.text(i, v + 2, f"{v:.2f}%", ha="center", va="bottom", fontsize=10, fontweight="bold")
+
 plt.tight_layout()
 plt.show()
 
