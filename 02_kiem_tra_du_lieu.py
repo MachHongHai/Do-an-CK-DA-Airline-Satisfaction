@@ -11,6 +11,7 @@ missing = pd.DataFrame({
     "ty_le_thieu": df.isna().mean() * 100
 })
 missing = missing[missing["so_luong_thieu"] > 0]
+missing["ty_le_thieu"] = missing["ty_le_thieu"].round(2)
 print(missing)
 
 # %% Kiểm tra dữ liệu trùng
@@ -53,13 +54,18 @@ service_cols = [
 
 service_range = pd.DataFrame({
     "min": df[service_cols].min(),
-    "max": df[service_cols].max()
+    "max": df[service_cols].max(),
+    "so_luong_0": (df[service_cols] == 0).sum()
 })
 print(service_range)
 
 # %% Boxplot Age
 plt.figure(figsize=(5.5, 4))
-plt.boxplot(df["Age"].dropna(), patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
+plt.boxplot(
+    df["Age"].dropna(),
+    patch_artist=True,
+    boxprops=dict(facecolor="#7293CB", alpha=0.7)
+)
 plt.title("Phân bố độ tuổi hành khách (Age)", fontweight="bold")
 plt.ylabel("Độ tuổi (năm)")
 plt.tight_layout()
@@ -67,7 +73,11 @@ plt.show()
 
 # %% Boxplot Flight Distance
 plt.figure(figsize=(5.5, 4))
-plt.boxplot(df["Flight Distance"].dropna(), patch_artist=True, boxprops=dict(facecolor="#7293CB", alpha=0.7))
+plt.boxplot(
+    df["Flight Distance"].dropna(),
+    patch_artist=True,
+    boxprops=dict(facecolor="#7293CB", alpha=0.7)
+)
 plt.title("Phân bố khoảng cách chuyến bay (Flight Distance)", fontweight="bold")
 plt.ylabel("Khoảng cách bay")
 plt.tight_layout()
@@ -75,7 +85,11 @@ plt.show()
 
 # %% Boxplot Departure Delay
 plt.figure(figsize=(5.5, 4))
-plt.boxplot(df["Departure Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#E1974C", alpha=0.7))
+plt.boxplot(
+    df["Departure Delay in Minutes"].dropna(),
+    patch_artist=True,
+    boxprops=dict(facecolor="#E1974C", alpha=0.7)
+)
 plt.title("Phân bố thời gian trễ khởi hành (Departure Delay)", fontweight="bold")
 plt.ylabel("Thời gian trễ (phút)")
 plt.tight_layout()
@@ -83,7 +97,11 @@ plt.show()
 
 # %% Boxplot Arrival Delay
 plt.figure(figsize=(5.5, 4))
-plt.boxplot(df["Arrival Delay in Minutes"].dropna(), patch_artist=True, boxprops=dict(facecolor="#E1974C", alpha=0.7))
+plt.boxplot(
+    df["Arrival Delay in Minutes"].dropna(),
+    patch_artist=True,
+    boxprops=dict(facecolor="#E1974C", alpha=0.7)
+)
 plt.title("Phân bố thời gian trễ khi đến (Arrival Delay)", fontweight="bold")
 plt.ylabel("Thời gian trễ (phút)")
 plt.tight_layout()
