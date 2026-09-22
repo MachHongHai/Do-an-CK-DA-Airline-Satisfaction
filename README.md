@@ -4,7 +4,8 @@
 
 ## Dữ liệu
 
-Nguồn:  https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
+Nguồn:  
+https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
 
 Dataset gốc gồm `train.csv` và `test.csv`. Hai file được gộp thành `airline.csv` để phục vụ phân tích.
 
@@ -18,7 +19,7 @@ Dataset gốc gồm `train.csv` và `test.csv`. Hai file được gộp thành `
 
 ## Công cụ
 
-Python, Pandas, NumPy, Matplotlib, SciPy và Visual Studio Code.
+Python, Pandas, Matplotlib, SciPy và Visual Studio Code.
 
 ## Cấu trúc
 
