@@ -2,8 +2,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-plt.style.use("seaborn-v0_8-whitegrid")
-
 df = pd.read_csv("data/airline_clean.csv")
 
 # %% Hàm tạo bảng tỷ lệ hài lòng theo nhóm
@@ -17,45 +15,28 @@ def tinh_ty_le(col):
 gender = tinh_ty_le("Gender")
 print(gender.round(2))
 
-plt.figure(figsize=(6, 4))
-ax = gender["ty_le"].plot(kind="bar", color="steelblue", width=0.45)
-ax.bar_label(ax.containers[0], fmt="%.2f%%", padding=3, fontweight="bold")
-plt.title("Tỷ lệ hài lòng theo giới tính", fontweight="bold")
-plt.ylabel("Tỷ lệ hài lòng (%)")
-plt.xlabel("Giới tính")
-plt.xticks([0, 1], ["Nữ", "Nam"], rotation=0)
-plt.ylim(0, 100)
-plt.tight_layout()
-plt.show()
-
 # %% Theo loại khách hàng
 customer = tinh_ty_le("Customer Type")
 print(customer.round(2))
 
-plt.figure(figsize=(6, 4))
-ax = customer["ty_le"].plot(kind="bar", color="steelblue", width=0.45)
-ax.bar_label(ax.containers[0], fmt="%.2f%%", padding=3, fontweight="bold")
-plt.title("Tỷ lệ hài lòng theo phân loại khách hàng", fontweight="bold")
+customer["ty_le"].plot(kind="bar")
+plt.title("Tỷ lệ hài lòng theo loại khách hàng")
 plt.ylabel("Tỷ lệ hài lòng (%)")
 plt.xlabel("Loại khách hàng")
 plt.xticks([0, 1], ["Khách hàng trung thành", "Khách hàng không trung thành"], rotation=0)
 plt.ylim(0, 100)
-plt.tight_layout()
 plt.show()
 
 # %% Theo mục đích chuyến đi
 travel = tinh_ty_le("Type of Travel")
 print(travel.round(2))
 
-plt.figure(figsize=(6, 4))
-ax = travel["ty_le"].plot(kind="bar", color="steelblue", width=0.45)
-ax.bar_label(ax.containers[0], fmt="%.2f%%", padding=3, fontweight="bold")
-plt.title("Tỷ lệ hài lòng theo mục đích chuyến bay", fontweight="bold")
+travel["ty_le"].plot(kind="bar")
+plt.title("Tỷ lệ hài lòng theo mục đích chuyến đi")
 plt.ylabel("Tỷ lệ hài lòng (%)")
-plt.xlabel("Mục đích chuyến bay")
+plt.xlabel("Mục đích chuyến đi")
 plt.xticks([0, 1], ["Bay công tác", "Bay cá nhân"], rotation=0)
 plt.ylim(0, 100)
-plt.tight_layout()
 plt.show()
 
 # %% Theo hạng vé
@@ -63,13 +44,10 @@ class_summary = tinh_ty_le("Class")
 class_summary = class_summary.reindex(["Business", "Eco Plus", "Eco"])
 print(class_summary.round(2))
 
-plt.figure(figsize=(6, 4))
-ax = class_summary["ty_le"].plot(kind="bar", color="steelblue", width=0.5)
-ax.bar_label(ax.containers[0], fmt="%.2f%%", padding=3, fontweight="bold")
-plt.title("Tỷ lệ hài lòng theo hạng ghế", fontweight="bold")
+class_summary["ty_le"].plot(kind="bar")
+plt.title("Tỷ lệ hài lòng theo hạng vé")
 plt.ylabel("Tỷ lệ hài lòng (%)")
-plt.xlabel("Hạng ghế (Class)")
-plt.xticks([0, 1, 2], ["Thương gia (Business)", "Phổ thông cao cấp (Eco Plus)", "Phổ thông (Eco)"], rotation=0)
+plt.xlabel("Hạng vé")
+plt.xticks([0, 1, 2], ["Business", "Eco Plus", "Eco"], rotation=0)
 plt.ylim(0, 100)
-plt.tight_layout()
 plt.show()
