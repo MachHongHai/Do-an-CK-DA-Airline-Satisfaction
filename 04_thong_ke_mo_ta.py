@@ -2,8 +2,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-plt.style.use("seaborn-v0_8-whitegrid")
-
 df = pd.read_csv("data/airline_clean.csv")
 
 # %% Số lượng và tỷ lệ satisfaction
@@ -16,15 +14,12 @@ print("\nTỷ lệ (%):")
 print(sat_rate.round(2))
 
 # %% Biểu đồ tỷ lệ satisfaction
-plt.figure(figsize=(6, 4))
-ax = sat_rate.plot(kind="bar", color=["#e74c3c", "#2ecc71"], width=0.45)
-ax.bar_label(ax.containers[0], fmt="%.2f%%", padding=3, fontweight="bold")
-plt.title("Tỷ lệ hài lòng chung của hành khách", fontsize=12, fontweight="bold")
+sat_rate.plot(kind="bar")
+plt.title("Tỷ lệ hài lòng chung của hành khách")
 plt.xlabel("Trạng thái hài lòng")
-plt.ylabel("Tỷ lệ phần trăm (%)")
+plt.ylabel("Tỷ lệ (%)")
 plt.xticks([0, 1], ["Không hài lòng / Trung lập", "Hài lòng"], rotation=0)
 plt.ylim(0, 100)
-plt.tight_layout()
 plt.show()
 
 # %% Thống kê các biến số chính
